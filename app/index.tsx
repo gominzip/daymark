@@ -24,7 +24,6 @@ const generateHeatmapData = () => {
 
 const heatmapData = generateHeatmapData();
 
-// Calculate day count (dummy: assuming app started 78 days ago)
 const dayCount = 78;
 
 export default function WelcomeScreen() {
@@ -87,8 +86,8 @@ export default function WelcomeScreen() {
 
         {/* Welcome message */}
         <View className="mb-8">
-          <Text className="text-emerald-800 text-3xl font-bold mb-2">Welcome to Day Mark</Text>
-          <Text className="text-gray-600 text-lg">가볍게 하루를 기록해보세요</Text>
+          <Text className="text-emerald-800 text-3xl font-bold mb-2">Hello Minzip 👋</Text>
+          <Text className="text-gray-600 text-lg">가볍게 오늘 하루를 기록해보세요</Text>
         </View>
 
         {/* Heatmap */}
@@ -96,44 +95,43 @@ export default function WelcomeScreen() {
           <Text className="text-emerald-800 text-xl font-semibold mb-4">나의 메모 활동 기록</Text>
 
           <View className="bg-white p-4 rounded-xl shadow-sm">
-            {/* Days of week labels */}
-            <View className="flex-row mb-2">
-              <View style={{ width: 20 }} />
-              <Text className="text-gray-400 text-xs" style={{ width: 14, marginHorizontal: 2 }}>
-                M
-              </Text>
-              <Text className="text-gray-400 text-xs" style={{ width: 14, marginHorizontal: 2 }}>
-                T
-              </Text>
-              <Text className="text-gray-400 text-xs" style={{ width: 14, marginHorizontal: 2 }}>
-                W
-              </Text>
-              <Text className="text-gray-400 text-xs" style={{ width: 14, marginHorizontal: 2 }}>
-                T
-              </Text>
-              <Text className="text-gray-400 text-xs" style={{ width: 14, marginHorizontal: 2 }}>
-                F
-              </Text>
-              <Text className="text-gray-400 text-xs" style={{ width: 14, marginHorizontal: 2 }}>
-                S
-              </Text>
-              <Text className="text-gray-400 text-xs" style={{ width: 14, marginHorizontal: 2 }}>
-                S
-              </Text>
-            </View>
+            <View className="flex-row">
+              <View className="flex-col justify-between">
+                <Text className="text-gray-400 text-xs" style={{ width: 14, marginHorizontal: 2 }}>
+                  M
+                </Text>
+                <Text className="text-gray-400 text-xs" style={{ width: 14, marginHorizontal: 2 }}>
+                  T
+                </Text>
+                <Text className="text-gray-400 text-xs" style={{ width: 14, marginHorizontal: 2 }}>
+                  W
+                </Text>
+                <Text className="text-gray-400 text-xs" style={{ width: 14, marginHorizontal: 2 }}>
+                  T
+                </Text>
+                <Text className="text-gray-400 text-xs" style={{ width: 14, marginHorizontal: 2 }}>
+                  F
+                </Text>
+                <Text className="text-gray-400 text-xs" style={{ width: 14, marginHorizontal: 2 }}>
+                  S
+                </Text>
+                <Text className="text-gray-400 text-xs" style={{ width: 14, marginHorizontal: 2 }}>
+                  S
+                </Text>
+              </View>
 
-            {/* Heatmap grid */}
-            <View className="flex-row flex-wrap">
-              {weeks.map((week, weekIndex) => (
-                <View key={`week-${weekIndex}`} className="flex-col mr-1">
-                  {week.map((day, dayIndex) => (
-                    <View
-                      key={`day-${day.date}`}
-                      className={`${getHeatmapColor(day.level)} w-3.5 h-3.5 rounded-sm m-0.5`}
-                    />
-                  ))}
-                </View>
-              ))}
+              <View className="flex-row flex-wrap">
+                {weeks.map((week, weekIndex) => (
+                  <View key={`week-${weekIndex}`} className="flex-col mr-1">
+                    {week.map((day, dayIndex) => (
+                      <View
+                        key={`day-${day.date}`}
+                        className={`${getHeatmapColor(day.level)} w-3.5 h-3.5 rounded-sm m-0.5`}
+                      />
+                    ))}
+                  </View>
+                ))}
+              </View>
             </View>
 
             <View className="flex-row justify-between items-center mt-4">
@@ -149,7 +147,6 @@ export default function WelcomeScreen() {
           </View>
         </View>
 
-        {/* Quick stats */}
         <View className="flex-row justify-between mb-8">
           <View className="bg-white p-4 rounded-xl shadow-sm flex-1 mr-2">
             <Ionicons name="document-text-outline" size={24} color="#10b981" />
